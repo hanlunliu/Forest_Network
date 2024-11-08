@@ -129,7 +129,9 @@ big_tapply_FUN <- function(
   } else {
     x <- x[sub_row, c(ccols, splitcol)]
   }
-  
+  if(is.vector(x)){
+    x<-as.data.frame(t(x))
+  }
   dat_split <- bigtabulate::bigsplit(
     x = x, ccols = ccols, splitcol = splitcol)
   
